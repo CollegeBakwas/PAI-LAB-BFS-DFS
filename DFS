@@ -1,1 +1,23 @@
 #DFS
+
+graph = {
+'a':['b','c'],
+'b':['d','e'],
+'c':['g'],
+'d':[],
+'e':['f'],
+'f':[],
+'g':[]
+}
+
+visited = set()
+
+def dfs(visited,graph,node):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+        for nei in graph[node]:
+            #print("neighbour: ",nei)
+            dfs(visited,graph,nei)
+
+dfs(visited,graph,"a")
